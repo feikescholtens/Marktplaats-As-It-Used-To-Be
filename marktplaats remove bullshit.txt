@@ -1,0 +1,30 @@
+document.querySelector(".ndfc-wrapper").remove()
+document.querySelector(".saveSearchControl p").remove()
+
+document.querySelectorAll(".hz-Listing--list-item").forEach(listElement => {
+  const aTag = listElement.querySelector("a")
+    if (aTag.getAttribute("data-tracking")) listElement.remove()
+})
+
+document.querySelectorAll(".hz-Banner--fluid").forEach(element => element.remove())
+/////
+const parent = document.querySelector(".hz-Page-element--breadCrumbAndSaveSearch")
+const sortSelect = document.querySelectorAll(".hz-ViewControl-group--functional-options")[document.querySelectorAll(".hz-ViewControl-group--functional-options").length - 1]
+const saveSearch = document.querySelector(".saveSearchControl")
+
+parent.insertBefore(sortSelect, saveSearch)
+////////
+
+document.querySelector(".hz-ViewControl").remove()
+
+document.querySelector("#adsense-container").remove()
+
+document.querySelector(".hz-H1Title").remove()
+
+document.querySelector(".hz-SuggestedSearches").remove()
+
+document.querySelector(".hz-Footer-appsInstall").remove()
+
+document.querySelectorAll(".hz-Footer-blog").forEach(element => element.remove())
+
+document.querySelector(".hz-Listings__container--cas").remove()
