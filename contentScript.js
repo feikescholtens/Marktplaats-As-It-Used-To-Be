@@ -31,13 +31,14 @@ function removeStuff() {
 
   //Apend multiple elements
   document.querySelectorAll(".hz-Listing--list-item").forEach(listElement => {
+
     const aTag = listElement.querySelector("a")
     if (settings.businessAds) {
       if (aTag.getAttribute("data-tracking")) elementsToRemove.push(listElement) //Remove brdrijfsadvertenties
     }
 
     if (settings.otherAds) {
-      if (listElement.querySelector(".hz-Listing-priority").innerText !== "") elementsToRemove.push(listElement) //Remove dagtoppersen dergelijke as wel
+      if (listElement.querySelector(".hz-Listing-priority").innerText !== " " && listElement.querySelector(".hz-Listing-priority").innerText !== "") elementsToRemove.push(listElement) //Remove dagtoppersen dergelijke as wel
     }
   })
   document.querySelectorAll(".hz-Banner--fluid").forEach(element => elementsToRemove.push(element))
@@ -73,7 +74,7 @@ function removeStuff() {
 
 }
 
-window.addEventListener("load", startRemovingProcess)
+window.addEventListener('load', startRemovingProcess)
 document.addEventListener("click", startRemovingProcess)
 
 function startRemovingProcess() {

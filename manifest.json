@@ -2,12 +2,9 @@
   "name": "Marktplaats as it used to be",
   "version": "1.0",
   "description": "",
-  "permissions": ["declarativeContent", "storage", "activeTab", "scripting"],
+  "permissions": ["storage", "activeTab", "scripting"],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
-  },
-  "background": {
-    "service_worker": "serviceWorker.js"
   },
   "action": {
     "default_popup": "popup.html",
@@ -20,7 +17,14 @@
   },
   "content_scripts": [{
     "matches": ["*://www.marktplaats.nl/l/*", "*://www.marktplaats.nl/q/*"],
-    "js": ["contentScript.js"]
+    "js": ["contentScript.js"],
+    "run_at": "document_start"
   }],
-  "manifest_version": 3
+  "manifest_version": 3,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "addon@example.com"
+    }
+  }
+
 }
